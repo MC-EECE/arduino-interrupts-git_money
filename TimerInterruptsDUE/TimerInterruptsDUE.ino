@@ -1,7 +1,7 @@
 // Turns
 const int ledPin = 13;
-const int NMAX = 100;
-const int JMAX = 10;
+const int NMAX = 10000;
+const int JMAX = 100;
 const unsigned long period = 100;
 const uint32_t freq = 10;
 
@@ -72,7 +72,7 @@ void loop()
   unsigned int current_time = millis();
   
   if (current_time - start_time >= period) {
-    digitalWrite(ledPin, l = !l);
+    //digitalWrite(ledPin, l = !l);
     start_time = millis();
   }
 }
@@ -86,5 +86,7 @@ void TC3_Handler()
   // You must do TC_GetStatus to "accept" interrupt
   // As parameters use the first two parameters used in startTimer (TC1, 0 in this case)
   TC_GetStatus(TC1, 0);
+      digitalWrite(ledPin, l = !l);
+
 
 }
